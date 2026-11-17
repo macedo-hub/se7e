@@ -66,11 +66,24 @@
             <div class="cartao-endereco">
               <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
               <div>
-                <strong>Rua Exemplo, 123</strong><br />
-                <span class="texto-discreto">Centro - Santa Luzia, PB<br />CEP 58600-000</span>
+                <strong data-end-rua>Rua Exemplo, 123</strong><br />
+                <span class="texto-discreto" data-end-detalhe>Centro - Santa Luzia, PB<br />CEP 58600-000</span>
               </div>
               <a href="#" class="link-discreto editar">Editar</a>
             </div>
+            <form class="formulario-endereco" data-form-endereco hidden>
+              <div class="campo"><label for="end-cidade">Cidade</label><select id="end-cidade"></select></div>
+              <div class="linha-campos">
+                <div class="campo"><label for="end-rua">Rua e número</label><input id="end-rua" required></div>
+                <div class="campo"><label for="end-bairro">Bairro</label><input id="end-bairro" required></div>
+              </div>
+              <div class="campo"><label for="end-cep">CEP</label><input id="end-cep" inputmode="numeric" maxlength="9" required></div>
+              <p class="texto-discreto" data-info-cidade></p>
+              <div>
+                <button type="submit" class="botao botao-primario">Salvar endereço</button>
+                <button type="button" class="botao botao-secundario" data-cancelar-endereco>Cancelar</button>
+              </div>
+            </form>
           </div>
 
           <div class="bloco-checkout">
@@ -114,6 +127,7 @@
           <h3>Resumo do pedido</h3>
           <div class="linha-resumo"><span>Itens (<span data-r-itens>0</span>)</span><span data-r-subtotal>R$ 0,00</span></div>
           <div class="linha-resumo"><span>Frete</span><span data-r-frete>R$ 12,90</span></div>
+          <div class="linha-resumo" data-r-linha-desconto><span>Desconto</span><span data-r-desconto>- R$ 0,00</span></div>
           <div class="linha-resumo total"><span>Total</span><span data-r-total>R$ 0,00</span></div>
         </aside>
       </div>

@@ -27,6 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
   abrirFormularioSolicitacao();
   botaoFavorito();
   adicionarAoCarrinho();
+  carrosselHero();
+  efeitosVisuais();
 });
 
 /* ---------- Aviso flutuante (toast) ---------- */
@@ -232,7 +234,13 @@ function carrinhoDinamico() {
 
     if (contadorItens) contadorItens.textContent = quantidadeItens;
     if (elSubtotal) elSubtotal.textContent = formatarMoeda(subtotal);
-    if (elTotal) elTotal.textContent = formatarMoeda(subtotal + frete);
+    const desconto = descontoDoCupom(subtotal);
+    const linhaDesconto = document.querySelector("[data-linha-desconto]");
+    if (linhaDesconto) {
+      linhaDesconto.style.display = desconto ? "" : "none";
+      document.querySelector("[data-desconto]").textContent = "- " + formatarMoeda(desconto);
+    }
+    if (elTotal) elTotal.textContent = formatarMoeda(subtotal - desconto + frete);
     if (contadorHeader) contadorHeader.textContent = quantidadeItens;
 
     const vazio = lista.querySelectorAll(".item-carrinho").length === 0;
@@ -248,6 +256,21 @@ function carrinhoDinamico() {
       atualizarTotais();
       mostrarAviso("Item removido do carrinho.");
     });
+  });
+
+  const campoCupom = document.querySelector(".campo-cupom input");
+  const botaoCupom = document.querySelector(".campo-cupom button");
+  if (campoCupom) campoCupom.value = sessionStorage.getItem("se7e-cupom") || "";
+  botaoCupom?.addEventListener("click", () => {
+    const codigo = campoCupom.value.trim().toUpperCase();
+    if (codigo && !(codigo in CUPONS)) {
+      sessionStorage.removeItem("se7e-cupom");
+      atualizarTotais();
+      return mostrarAviso("Cupom inválido ou expirado.");
+    }
+    if (codigo) sessionStorage.setItem("se7e-cupom", codigo); else sessionStorage.removeItem("se7e-cupom");
+    atualizarTotais();
+    mostrarAviso(codigo ? `Cupom ${codigo} aplicado!` : "Cupom removido.");
   });
 
   atualizarTotais();
@@ -393,6 +416,7 @@ function renderizarLoja() {
   atualizarContador();
   renderizarHome();
   renderizarCarrinho();
+  enderecoEntrega();
   renderizarResumo();
   renderizarListaResumo();
   renderizarTroca();
@@ -459,23 +483,34 @@ function renderizarResumo() {
   if (!elItens) return;
   const { qtd, subtotal } = totaisCarrinho();
   const radios = document.querySelectorAll("input[name='frete']");
-  const guardado = sessionStorage.getItem("se7e-frete");
-  if (radios.length) {
-    radios.forEach((r) => { if (guardado !== null && Number(r.value) === Number(guardado)) r.checked = true; });
-  }
+  const idx = sessionStorage.getItem("se7e-frete-idx");
+  if (radios.length && idx !== null && radios[idx]) radios[idx].checked = true;
+  const salvarFrete = () => {
+    const m = document.querySelector("input[name='frete']:checked");
+    if (!m) return;
+    sessionStorage.setItem("se7e-frete", m.value);
+    sessionStorage.setItem("se7e-frete-idx", [...radios].indexOf(m));
+  };
+  salvarFrete();
   const freteAtual = () => {
     if (!qtd) return 0;
     const marcado = document.querySelector("input[name='frete']:checked");
-    return marcado ? Number(marcado.value) : Number(guardado ?? 12.9);
+    return marcado ? Number(marcado.value) : freteSalvo();
   };
   const pintar = () => {
     const frete = freteAtual();
     elItens.textContent = qtd;
     document.querySelector("[data-r-subtotal]").textContent = formatarMoeda(subtotal);
     document.querySelector("[data-r-frete]").textContent = formatarMoeda(frete);
-    document.querySelector("[data-r-total]").textContent = formatarMoeda(subtotal + frete);
+    const desconto = descontoDoCupom(subtotal);
+    const linha = document.querySelector("[data-r-linha-desconto]");
+    if (linha) {
+      linha.style.display = desconto ? "" : "none";
+      document.querySelector("[data-r-desconto]").textContent = "- " + formatarMoeda(desconto);
+    }
+    document.querySelector("[data-r-total]").textContent = formatarMoeda(subtotal - desconto + frete);
   };
-  radios.forEach((r) => r.addEventListener("change", () => { sessionStorage.setItem("se7e-frete", r.value); pintar(); }));
+  radios.forEach((r) => r.addEventListener("change", () => { salvarFrete(); pintar(); }));
   pintar();
 }
 
@@ -501,11 +536,12 @@ function finalizarPedido() {
   botao.addEventListener("click", () => {
     const itens = lerCarrinho();
     if (!itens.length) return;
-    const frete = Number(sessionStorage.getItem("se7e-frete") ?? 12.9);
+    const frete = freteSalvo();
     const pedidos = lerJSON("se7e-pedidos", []);
     const pedido = {
       codigo: "#SE7E" + (12346 + pedidos.length), cliente: sessionStorage.getItem("se7e-nome") || "Cliente",
-      itens, total: totaisCarrinho(itens).subtotal + frete,
+      itens, total: totaisCarrinho(itens).subtotal - descontoDoCupom(totaisCarrinho(itens).subtotal) + frete,
+      endereco: lerJSON("se7e-endereco", null),
     };
     pedidos.push(pedido);
     gravarJSON("se7e-pedidos", pedidos);
@@ -513,6 +549,7 @@ function finalizarPedido() {
     itens.forEach((i) => { const p = PRODUTOS.find((x) => x.id === i.id); if (p) p.estoque = Math.max(0, p.estoque - i.qtd); });
     salvarProdutos();
     gravarCarrinho([]);
+    sessionStorage.removeItem("se7e-cupom");
   });
 }
 
@@ -536,4 +573,144 @@ function formularioContato() {
     form.reset();
     mostrarAviso("Mensagem enviada! Responderemos em breve.");
   });
+}
+
+/* ================= Entrega: endereço editável (cidades atendidas) ================= */
+const CIDADES = [
+  { nome: "Santa Luzia", uf: "PB", cep: "58600-000", frete: [9.9, 15.9], prazo: ["3 a 5", "1 a 2"],
+    info: "Sede do campus do IFPB, no Seridó paraibano — é a entrega mais rápida da SE7E." },
+  { nome: "Junco do Seridó", uf: "PB", cep: "58610-000", frete: [11.9, 17.9], prazo: ["4 a 6", "2 a 3"],
+    info: "Vizinha de Santa Luzia, também no Seridó paraibano." },
+  { nome: "Equador", uf: "RN", cep: "59340-000", frete: [15.9, 22.9], prazo: ["5 a 8", "3 a 5"],
+    info: "Já no Rio Grande do Norte, perto da divisa com a Paraíba." },
+  { nome: "Parelhas", uf: "RN", cep: "59360-000", frete: [14.9, 21.9], prazo: ["5 a 7", "2 a 4"],
+    info: "Cidade do Seridó potiguar, atendida com entrega expressa." },
+];
+
+function freteSalvo() {
+  const guardado = sessionStorage.getItem("se7e-frete");
+  if (guardado !== null) return Number(guardado);
+  const cidade = CIDADES.find((c) => c.nome === lerJSON("se7e-endereco", {}).cidade) || CIDADES[0];
+  return cidade.frete[0];
+}
+
+function enderecoEntrega() {
+  const rua = document.querySelector("[data-end-rua]");
+  if (!rua) return;
+  const form = document.querySelector("[data-form-endereco]");
+  const seletor = document.getElementById("end-cidade");
+  const achar = (nome) => CIDADES.find((c) => c.nome === nome) || CIDADES[0];
+  let endereco = { rua: "Rua Exemplo, 123", bairro: "Centro", cidade: "Santa Luzia", cep: "58600-000", ...lerJSON("se7e-endereco", {}) };
+  seletor.innerHTML = CIDADES.map((c) => `<option value="${c.nome}">${c.nome} — ${c.uf}</option>`).join("");
+
+  const aplicarFrete = (cidade) => {
+    document.querySelectorAll(".opcao-frete").forEach((rotulo, i) => {
+      if (i > 1) return; // a 3ª opção é a retirada na loja (grátis)
+      rotulo.querySelector("input").value = cidade.frete[i];
+      rotulo.querySelector(".preco-frete").textContent = formatarMoeda(cidade.frete[i]);
+      rotulo.querySelector(".detalhe-frete span").textContent = `De ${cidade.prazo[i]} dias úteis`;
+    });
+  };
+  const pintar = () => {
+    const cidade = achar(endereco.cidade);
+    rua.textContent = endereco.rua;
+    document.querySelector("[data-end-detalhe]").innerHTML = `${esc(endereco.bairro)} - ${cidade.nome}, ${cidade.uf}<br />CEP ${esc(endereco.cep)}`;
+    aplicarFrete(cidade);
+  };
+  const mostrarInfo = () => {
+    const c = achar(seletor.value);
+    document.querySelector("[data-info-cidade]").textContent = `${c.info} Frete a partir de ${formatarMoeda(c.frete[0])}.`;
+  };
+
+  document.querySelector(".cartao-endereco .editar").addEventListener("click", (e) => {
+    e.preventDefault();
+    seletor.value = achar(endereco.cidade).nome;
+    document.getElementById("end-rua").value = endereco.rua;
+    document.getElementById("end-bairro").value = endereco.bairro;
+    document.getElementById("end-cep").value = endereco.cep;
+    mostrarInfo();
+    form.hidden = !form.hidden;
+  });
+  seletor.addEventListener("change", () => {
+    document.getElementById("end-cep").value = achar(seletor.value).cep;
+    mostrarInfo();
+  });
+  document.querySelector("[data-cancelar-endereco]").addEventListener("click", () => (form.hidden = true));
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const cep = document.getElementById("end-cep").value.trim();
+    if (!/^\d{5}-?\d{3}$/.test(cep)) return mostrarAviso("Informe um CEP válido (ex.: 58600-000).");
+    endereco = {
+      rua: document.getElementById("end-rua").value.trim(), bairro: document.getElementById("end-bairro").value.trim(),
+      cidade: seletor.value, cep: cep.length === 8 ? cep.slice(0, 5) + "-" + cep.slice(5) : cep,
+    };
+    gravarJSON("se7e-endereco", endereco);
+    pintar();
+    document.querySelector("input[name='frete']:checked")?.dispatchEvent(new Event("change"));
+    form.hidden = true;
+    mostrarAviso("Endereço atualizado!");
+  });
+  pintar();
+}
+
+/* ================= Efeitos e interações ================= */
+function carrosselHero() {
+  const fotos = document.querySelectorAll(".faixa-hero-ilustracao .foto");
+  if (fotos.length < 2) return;
+  let atual = 0;
+  setInterval(() => {
+    fotos[atual].classList.remove("ativa");
+    atual = (atual + 1) % fotos.length;
+    fotos[atual].classList.add("ativa");
+  }, 4500);
+}
+
+function efeitosVisuais() {
+  const admin = document.querySelector(".conteudo-admin");
+  const reduzir = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // aparecer ao rolar
+  if (!admin && !reduzir && "IntersectionObserver" in window) {
+    const alvos = document.querySelectorAll(".faixa-hero, .cabecalho-secao, .cartao-produto, .bloco-checkout, .grade-info > *, .cartao-membro, .cartao-orientador, .faixa-numeros, .item-carrinho");
+    const obs = new IntersectionObserver((entradas) => entradas.forEach((e) => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add("visivel");
+      setTimeout(() => (e.target.style.transitionDelay = ""), 900);
+      obs.unobserve(e.target);
+    }), { threshold: 0.12 });
+    alvos.forEach((el, i) => {
+      el.classList.add("revelar");
+      el.style.transitionDelay = `${(i % 4) * 80}ms`;
+      obs.observe(el);
+    });
+  }
+
+  // contagem animada dos números
+  document.querySelectorAll("[data-contar]").forEach((el) => {
+    const final = Number(el.dataset.contar);
+    const rodar = () => {
+      if (reduzir) return (el.textContent = final);
+      const inicio = performance.now();
+      const passo = (agora) => {
+        const t = Math.min((agora - inicio) / 1000, 1);
+        el.textContent = Math.round(final * (1 - Math.pow(1 - t, 3)));
+        if (t < 1) requestAnimationFrame(passo);
+      };
+      requestAnimationFrame(passo);
+    };
+    if (!("IntersectionObserver" in window)) return (el.textContent = final);
+    const obs = new IntersectionObserver((es) => { if (es[0].isIntersecting) { rodar(); obs.disconnect(); } });
+    obs.observe(el);
+  });
+
+  // botão de voltar ao topo
+  if (!admin) {
+    const botao = document.createElement("button");
+    botao.className = "voltar-topo";
+    botao.setAttribute("aria-label", "Voltar ao topo");
+    botao.innerHTML = svgIcone("M12 19V5M5 12l7-7 7 7", "icone");
+    botao.addEventListener("click", () => scrollTo({ top: 0, behavior: reduzir ? "auto" : "smooth" }));
+    document.body.appendChild(botao);
+    addEventListener("scroll", () => botao.classList.toggle("visivel", scrollY > 400), { passive: true });
+  }
 }

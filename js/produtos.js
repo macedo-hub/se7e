@@ -39,3 +39,12 @@ function totaisCarrinho(itens = lerCarrinho()) {
   const d = itensDetalhados(itens);
   return { qtd: d.reduce((s, i) => s + i.qtd, 0), subtotal: d.reduce((s, i) => s + i.qtd * i.produto.preco, 0) };
 }
+
+/* Cupons de desconto (valor fixo em R$, conforme a camada de persistência do Documento de Requisitos) */
+const CUPONS = { DESCONTO10: 10, DESCONTO15: 15, DESCONTO20: 20, DESCONTO30: 30, DESCONTO50: 50 };
+function descontoDoCupom(subtotal) {
+  try {
+    const codigo = sessionStorage.getItem("se7e-cupom");
+    return codigo && CUPONS[codigo] ? Math.min(CUPONS[codigo], subtotal) : 0;
+  } catch { return 0; }
+}
