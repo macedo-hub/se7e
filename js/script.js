@@ -62,11 +62,27 @@ function menuMovel() {
   const botao = document.querySelector(".botao-menu-movel");
   const nav = document.querySelector(".nav-principal");
   if (!botao || !nav) return;
-  botao.addEventListener("click", () => {
-    const aberto = nav.getAttribute("data-aberto") === "true";
-    nav.setAttribute("data-aberto", String(!aberto));
-    nav.style.display = aberto ? "none" : "flex";
+  const iconeMenu = botao.innerHTML;
+  const iconeX = '<svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>';
+  botao.setAttribute("aria-expanded", "false");
+  const definir = (aberto) => {
+    nav.setAttribute("data-aberto", String(aberto));
+    botao.setAttribute("aria-expanded", String(aberto));
+    botao.setAttribute("aria-label", aberto ? "Fechar menu" : "Abrir menu");
+    botao.innerHTML = aberto ? iconeX : iconeMenu;
+  };
+  botao.addEventListener("click", (e) => {
+    e.stopPropagation();
+    definir(nav.getAttribute("data-aberto") !== "true");
   });
+  document.addEventListener("click", (e) => {
+    if (nav.getAttribute("data-aberto") === "true" && !nav.contains(e.target)) definir(false);
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && nav.getAttribute("data-aberto") === "true") { definir(false); botao.focus(); }
+  });
+  nav.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => definir(false)));
+  matchMedia("(min-width: 861px)").addEventListener("change", (m) => { if (m.matches) definir(false); });
 }
 
 /* ---------- Mostrar/ocultar senha ---------- */
@@ -92,11 +108,13 @@ function abasAcesso() {
   const abas = document.querySelectorAll(".abas-acesso button");
   const paineis = document.querySelectorAll("[data-painel-acesso]");
   if (!abas.length) return;
+  const contenedor = document.querySelector(".abas-acesso");
   abas.forEach((aba) => {
     aba.addEventListener("click", () => {
       abas.forEach((a) => a.setAttribute("aria-selected", "false"));
       aba.setAttribute("aria-selected", "true");
       const alvo = aba.getAttribute("data-aba");
+      contenedor.setAttribute("data-ativa", alvo);
       paineis.forEach((p) => {
         p.style.display = p.getAttribute("data-painel-acesso") === alvo ? "block" : "none";
       });
@@ -671,7 +689,7 @@ function efeitosVisuais() {
 
   // aparecer ao rolar
   if (!admin && !reduzir && "IntersectionObserver" in window) {
-    const alvos = document.querySelectorAll(".faixa-hero, .cabecalho-secao, .cartao-produto, .bloco-checkout, .grade-info > *, .cartao-membro, .cartao-orientador, .faixa-numeros, .item-carrinho");
+    const alvos = document.querySelectorAll(".faixa-hero, .cabecalho-secao, .cartao-produto, .bloco-checkout, .grade-info > *, .cartao-membro, .cartao-orientador, .faixa-numeros, .item-carrinho, .sobre-cartao");
     const obs = new IntersectionObserver((entradas) => entradas.forEach((e) => {
       if (!e.isIntersecting) return;
       e.target.classList.add("visivel");

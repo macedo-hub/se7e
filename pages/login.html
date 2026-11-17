@@ -13,6 +13,8 @@
   <main class="tela-acesso">
 
     <section class="tela-acesso-visual">
+      <span class="acesso-pontos" aria-hidden="true"></span>
+      <span class="hex hex-a" aria-hidden="true"></span><span class="hex hex-b" aria-hidden="true"></span><span class="hex hex-c" aria-hidden="true"></span>
       <a href="../index.html" class="marca">
         <svg class="marca-hexagono" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
           <defs>
@@ -29,37 +31,51 @@
       <div class="tela-acesso-texto">
         <h1>Mais estilo para o seu dia.</h1>
         <p>Roupas que acompanham você em todos os momentos.</p>
+        <ul class="acesso-beneficios">
+          <li><span><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg></span>Frete calculado pelo seu CEP</li>
+          <li><span><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg></span>Pague com PIX, cartão ou boleto</li>
+          <li><span><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg></span>Troca e devolução pelo site</li>
+        </ul>
       </div>
 
-      <svg class="tela-acesso-montanhas" viewBox="0 0 400 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0 120 L40 60 L75 90 L120 35 L165 90 L205 55 L250 95 L300 45 L340 85 L400 60 L400 120 Z" fill="currentColor" opacity="0.55"/>
-        <path d="M0 120 L60 85 L100 100 L150 65 L190 105 L240 75 L280 110 L330 80 L400 100 L400 120 Z" fill="currentColor" opacity="0.9"/>
+      <svg class="tela-acesso-montanhas" viewBox="0 0 800 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <g class="montanhas-fundo"><path d="M0 60 L40 60 L75 90 L120 35 L165 90 L205 55 L250 95 L300 45 L340 85 L400 60 L440 60 L475 90 L520 35 L565 90 L605 55 L650 95 L700 45 L740 85 L800 60 L840 60 L875 90 L920 35 L965 90 L1005 55 L1050 95 L1100 45 L1140 85 L1200 60 L1200 120 L0 120 Z" fill="currentColor" opacity="0.45"/></g>
+        <g class="montanhas-frente"><path d="M0 100 L60 85 L100 100 L150 65 L190 105 L240 75 L280 110 L330 80 L400 100 L460 85 L500 100 L550 65 L590 105 L640 75 L680 110 L730 80 L800 100 L860 85 L900 100 L950 65 L990 105 L1040 75 L1080 110 L1130 80 L1200 100 L1200 120 L0 120 Z" fill="currentColor" opacity="0.85"/></g>
       </svg>
     </section>
 
     <section class="tela-acesso-formulario">
+      <div class="acesso-barra-movel">
+        <a href="../index.html" class="marca">
+          <svg class="marca-hexagono" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M20 3 34.5 11.5 34.5 28.5 20 37 5.5 28.5 5.5 11.5Z" fill="#2955c9"/></svg>
+          SE7E
+        </a>
+        <a href="../index.html" class="link-voltar-loja">Voltar à loja</a>
+      </div>
       <div class="cartao-formulario">
 
-        <div class="abas-acesso" role="tablist">
+        <div class="abas-acesso" role="tablist" data-ativa="entrar">
+          <span class="abas-marcador" aria-hidden="true"></span>
           <button type="button" role="tab" data-aba="entrar" aria-selected="true">Entrar</button>
           <button type="button" role="tab" data-aba="cadastrar" aria-selected="false">Cadastrar</button>
         </div>
 
         <!-- Painel: Entrar (RF001 - Login) -->
         <form data-painel-acesso="entrar">
+          <div class="titulo-acesso"><h2>Bem-vindo de volta</h2><p>Entre para acompanhar seus pedidos e finalizar compras.</p></div>
           <div class="campo entrada-com-icone">
             <label for="email-entrar">E-mail ou usuário</label>
-            <svg class="icone icone-pequeno" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
-            <input type="text" id="email-entrar" name="email" placeholder="seu@email.com ou usuário" autocomplete="username" required />
+            <div class="caixa-entrada"><svg class="icone icone-pequeno" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+            <input type="text" id="email-entrar" name="email" placeholder="seu@email.com ou usuário" autocomplete="username" required /></div>
           </div>
 
           <div class="campo entrada-com-icone">
             <label for="senha-entrar">Senha</label>
-            <svg class="icone icone-pequeno" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <div class="caixa-entrada"><svg class="icone icone-pequeno" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
             <input type="password" id="senha-entrar" name="senha" placeholder="••••••••" required />
             <button type="button" class="alternar-senha" aria-label="Mostrar senha">
               <svg class="icone icone-pequeno" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
-            </button>
+            </button></div>
           </div>
 
           <div class="opcao-lembrar">
@@ -68,7 +84,7 @@
           </div>
 
           <button type="submit" class="botao botao-primario botao-bloco">Entrar</button>
-          <p class="dica-login">Acesso administrador: usuário <strong>admin</strong> e senha <strong>admin</strong></p>
+          <p class="dica-login"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16v-4"/><path d="M12 8h.01"/><circle cx="12" cy="12" r="10"/></svg><span>Acesso administrador: usuário <strong>admin</strong> e senha <strong>admin</strong></span></p>
 
           <div class="divisor-ou">ou</div>
 
@@ -84,6 +100,7 @@
 
         <!-- Painel: Cadastrar -->
         <form data-painel-acesso="cadastrar">
+          <div class="titulo-acesso"><h2>Crie sua conta</h2><p>Leva menos de um minuto e deixa suas compras mais rápidas.</p></div>
           <div class="campo">
             <label for="nome-cadastro">Nome completo</label>
             <input type="text" id="nome-cadastro" name="nome" placeholder="Como podemos te chamar" required />
@@ -91,22 +108,23 @@
 
           <div class="campo entrada-com-icone">
             <label for="email-cadastro">E-mail</label>
-            <svg class="icone icone-pequeno" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
-            <input type="email" id="email-cadastro" name="email" placeholder="seu@email.com" required />
+            <div class="caixa-entrada"><svg class="icone icone-pequeno" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+            <input type="email" id="email-cadastro" name="email" placeholder="seu@email.com" required /></div>
           </div>
 
           <div class="campo entrada-com-icone">
             <label for="senha-cadastro">Senha</label>
-            <svg class="icone icone-pequeno" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <div class="caixa-entrada"><svg class="icone icone-pequeno" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
             <input type="password" id="senha-cadastro" name="senha" placeholder="Mínimo de 8 caracteres" required />
             <button type="button" class="alternar-senha" aria-label="Mostrar senha">
               <svg class="icone icone-pequeno" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
-            </button>
+            </button></div>
           </div>
 
           <button type="submit" class="botao botao-primario botao-bloco mt-1">Criar conta</button>
         </form>
 
+        <a href="../index.html" class="voltar-loja"><svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg> Voltar à loja</a>
       </div>
     </section>
 
