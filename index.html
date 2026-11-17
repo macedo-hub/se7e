@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SE7E — Mais estilo para o seu dia</title>
+  <meta name="description" content="SE7E: loja online de roupas com camisetas, calças e jaquetas para todas as estações." />
+  <link rel="icon" type="image/svg+xml" href="img/logo-hexagono.svg">
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/estilo.css" />
+</head>
+<body>
+
+  <header class="cabecalho">
+    <div class="recipiente barra-cabecalho">
+      <a href="index.html" class="marca">
+        <svg class="marca-hexagono" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradeHex" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#5c86e8"/>
+              <stop offset="1" stop-color="#1c3a75"/>
+            </linearGradient>
+          </defs>
+          <path d="M20 3 34.5 11.5 34.5 28.5 20 37 5.5 28.5 5.5 11.5Z" fill="url(#gradeHex)"/>
+        </svg>
+        SE7E
+      </a>
+
+      <button class="botao-menu-movel" aria-label="Abrir menu">
+        <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
+      </button>
+
+      <nav class="nav-principal" aria-label="Navegação principal">
+        <a href="index.html" aria-current="page">Início</a>
+        <a href="index.html#destaques">Produtos</a>
+        <a href="pages/sobre.html">Sobre</a>
+        <a href="pages/contato.html">Contato</a>
+      </nav>
+
+      <div class="acoes-cabecalho">
+        <button class="botao-icone" aria-label="Buscar">
+          <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </button>
+        <a href="pages/login.html" class="botao-icone" aria-label="Minha conta">
+          <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </a>
+        <a href="pages/carrinho.html" class="botao-icone" aria-label="Carrinho de compras">
+          <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m2.05 2.05 1.099-.028a1 1 0 0 1 1.008.815l2.69 14.347A1 1 0 0 0 7.83 18H18"/><path d="M4.563 5h16.435a1 1 0 0 1 .981 1.204l-1.026 6.226A2 2 0 0 1 18.962 14H6.25"/><circle cx="18" cy="20" r="2"/><circle cx="8" cy="20" r="2"/></svg>
+          <span class="contador-carrinho">3</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="recipiente secao">
+
+      <section class="faixa-hero">
+        <div>
+          <span class="selo selo-neutro">Nova coleção</span>
+          <h1>Coleção Nove(mbro)!</h1>
+          <p>Estilo e conforto para todas as suas jornadas, com peças pensadas para o seu dia a dia .</p>
+          <a href="#destaques" class="botao botao-claro">
+            Ver coleção
+            <svg class="icone icone-pequeno" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+        <div class="faixa-hero-ilustracao">
+          <img class="foto" src="img/banner-outono-inverno.jpg" alt="Modelo vestindo a coleção Outono/Inverno">
+          <svg class="icone icone-reserva" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
+        </div>
+      </section>
+
+      <section id="destaques" class="mt-4">
+        <div class="cabecalho-secao">
+          <h2>Destaques</h2>
+          <a href="#" class="link-discreto">
+            Ver todos
+            <svg class="icone icone-pequeno" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="faixa-categorias mb-3">
+          <button class="pilula-categoria" aria-current="true">Todos</button>
+          <button class="pilula-categoria">Camisetas</button>
+          <button class="pilula-categoria">Calças</button>
+          <button class="pilula-categoria">Jaquetas</button>
+        </div>
+
+        <div class="grade-produtos" data-grade-produtos>
+
+          <a href="pages/produto.html?id=terceirao" class="cartao-produto">
+            <button class="botao-favorito" aria-label="Favoritar Camisa Terceirão">
+              <svg class="icone icone-pequeno" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/></svg>
+            </button>
+            <div class="miniatura-produto">
+              <img class="foto" src="img/produtos/moletom-oversized-1.jpg" alt="Camisa Terceirão">
+              <svg class="icone icone-reserva" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
+            </div>
+            <div class="info-produto-cartao">
+              <h3>Camisa Terceirão</h3>
+              <span class="preco">R$ 69,99</span>
+            </div>
+          </a>
+
+          <a href="pages/produto.html?id=matue" class="cartao-produto">
+            <button class="botao-favorito" aria-label="Favoritar Camiseta Básica">
+              <svg class="icone icone-pequeno" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/></svg>
+            </button>
+            <div class="miniatura-produto">
+              <img class="foto" src="https://www.asteric.com.br/cdn/shop/files/CAMISAMATUE333-OFFWHITE.jpg?v=1723335105" alt="Camiseta Básica">
+              <svg class="icone icone-reserva" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
+            </div>
+            <div class="info-produto-cartao">
+              <h3>Camiseta Oversized Matuê 333</h3>
+              <span class="preco">R$ 99,99</span>
+            </div>
+          </a>
+
+          <a href="pages/produto.html?id=cargo" class="cartao-produto">
+            <button class="botao-favorito ativo" aria-label="Favoritar Calça Cargo">
+              <svg class="icone icone-pequeno" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/></svg>
+            </button>
+            <div class="miniatura-produto">
+              <img class="foto" src="https://images.tcdn.com.br/img/img_prod/873120/cala_sarja_masculina_verde_militar_1_20260416113745_f21a1eebb1d2.jpg" alt="Calça Cargo">
+              <svg class="icone icone-reserva" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
+            </div>
+            <div class="info-produto-cartao">
+              <h3>Calça Cargo</h3>
+              <span class="preco">R$ 129,99</span>
+            </div>
+          </a>
+
+          <a href="pages/produto.html?id=moletom" class="cartao-produto">
+            <button class="botao-favorito" aria-label="Favoritar Moletom Oversized">
+              <svg class="icone icone-pequeno" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/></svg>
+            </button>
+            <div class="miniatura-produto">
+              <img class="foto" src="https://s.brunxind.com/gallery/moletom-canguru-premium-3-cabos-com-capuz-verdel-quartzo-2702142334.jpg" alt="Moletom Oversized">
+              <svg class="icone icone-reserva" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
+            </div>
+            <div class="info-produto-cartao">
+              <h3>Moletom Oversized</h3>
+              <span class="preco">R$ 199,90</span>
+            </div>
+          </a>
+
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="rodape">
+    <div class="recipiente">
+      <span>© 2026 SE7E — Loja Online de Roupas. Projeto acadêmico, IFPB Campus Santa Luzia.</span>
+      <nav class="rodape-links">
+        <a href="pages/troca.html">Trocas e devoluções</a>
+        <a href="#">Privacidade</a>
+        <a href="pages/contato.html">Contato</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/produtos.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

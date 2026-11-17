@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Relatórios — SE7E</title>
+  <link rel="icon" type="image/svg+xml" href="../img/logo-hexagono.svg">
+  <link rel="stylesheet" href="../css/reset.css" />
+  <link rel="stylesheet" href="../css/estilo.css" />
+</head>
+<body>
+
+  <header class="cabecalho">
+    <div class="recipiente barra-cabecalho">
+      <a href="../index.html" class="marca">
+        <svg class="marca-hexagono" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="gradeHexAdmin" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#5c86e8"/><stop offset="1" stop-color="#1c3a75"/></linearGradient></defs>
+          <path d="M20 3 34.5 11.5 34.5 28.5 20 37 5.5 28.5 5.5 11.5Z" fill="url(#gradeHexAdmin)"/>
+        </svg>
+        SE7E
+        <span class="marca-admin-selo">Administrador</span>
+      </a>
+      <button class="botao-menu-movel" aria-label="Abrir menu">
+        <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
+      </button>
+      <nav class="nav-principal" aria-label="Navegação principal">
+        <a href="../index.html">Início</a>
+        <a href="../index.html#destaques">Produtos</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="contato.html">Contato</a>
+      </nav>
+      <div class="acoes-cabecalho">
+        <a href="admin-perfil.html" class="botao-icone" aria-label="Perfil do administrador"><svg class="icone " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
+        <button class="botao-icone" aria-label="Sair">
+          <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout-admin">
+
+    <aside class="barra-lateral-admin">
+      <nav>
+        <a href="admin.html" class="item-lateral">
+          <svg class="icone icone-pequeno" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+          Painel
+        </a>
+        <a href="admin-catalogo.html" class="item-lateral">
+          <svg class="icone icone-pequeno" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.97 12.92A2 2 0 0 0 2 14.63v3.24a2 2 0 0 0 .97 1.71l3 1.8a2 2 0 0 0 2.06 0L12 19v-5.5l-5-3-4.03 2.42Z"/><path d="m7 16.5-4.74-2.85"/><path d="m7 16.5 5-3"/><path d="M7 16.5v5.17"/><path d="M12 13.5V19l3.97 2.38a2 2 0 0 0 2.06 0l3-1.8a2 2 0 0 0 .97-1.71v-3.24a2 2 0 0 0-.97-1.71L17 10.5l-5 3Z"/><path d="m17 16.5-5-3"/><path d="m17 16.5 4.74-2.85"/><path d="M17 16.5v5.17"/><path d="M7.97 4.42A2 2 0 0 0 7 6.13v4.37l5 3 5-3V6.13a2 2 0 0 0-.97-1.71l-3-1.8a2 2 0 0 0-2.06 0l-3 1.8Z"/><path d="M12 8 7.26 5.15"/><path d="m12 8 4.74-2.85"/><path d="M12 13.5V8"/></svg>
+          Catálogo
+        </a>
+        <a href="admin-estoque.html" class="item-lateral">
+          <svg class="icone icone-pequeno" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="5" x="2" y="3" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M10 12h4"/></svg>
+          Estoque
+        </a>
+        <a href="admin-relatorios.html" class="item-lateral" aria-current="page">
+          <svg class="icone icone-pequeno" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+          Relatórios
+        </a>
+      <a href="admin-perfil.html" class="item-lateral">
+          <svg class="icone icone-pequeno" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          Perfil
+        </a>
+      </nav>
+      <a href="../index.html" class="item-lateral sair">
+        <svg class="icone icone-pequeno" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/></svg>
+        Sair
+      </a>
+    </aside>
+
+    <main class="conteudo-admin" data-pagina="relatorios">
+      <div class="cabecalho-secao">
+        <h1>Relatórios de vendas</h1>
+        <div class="campo"><label for="r-periodo">Período</label>
+          <select id="r-periodo" data-filtro-periodo>
+            <option value="7">Últimos 7 dias</option><option value="30" selected>Últimos 30 dias</option><option value="0">Todo o período</option>
+          </select></div>
+      </div>
+      <div class="grade-estatisticas" data-resumo-relatorio></div>
+      <div class="painel-branco">
+        <div class="cabecalho-secao"><h3>Produtos mais vendidos</h3></div>
+        <table class="tabela-admin">
+          <thead><tr><th>Produto</th><th>Unidades</th><th>Total vendido</th></tr></thead>
+          <tbody data-tabela-relatorio></tbody>
+        </table>
+        <p class="mt-2" data-sem-dados hidden>Não há dados disponíveis para o período informado.</p>
+      </div></main>
+  </div>
+
+  <script src="../js/produtos.js"></script>
+  <script src="../js/script.js"></script>
+  <script src="../js/admin.js"></script>
+</body>
+</html>

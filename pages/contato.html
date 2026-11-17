@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contato — SE7E</title>
+  <link rel="icon" type="image/svg+xml" href="../img/logo-hexagono.svg">
+  <link rel="stylesheet" href="../css/reset.css" />
+  <link rel="stylesheet" href="../css/estilo.css" />
+</head>
+<body>
+
+  <header class="cabecalho">
+    <div class="recipiente barra-cabecalho">
+      <a href="../index.html" class="marca">
+        <svg class="marca-hexagono" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="gradeHexTroca" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#5c86e8"/><stop offset="1" stop-color="#1c3a75"/></linearGradient></defs>
+          <path d="M20 3 34.5 11.5 34.5 28.5 20 37 5.5 28.5 5.5 11.5Z" fill="url(#gradeHexTroca)"/>
+        </svg>
+        SE7E
+      </a>
+      <button class="botao-menu-movel" aria-label="Abrir menu">
+        <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
+      </button>
+      <nav class="nav-principal" aria-label="Navegação principal">
+        <a href="../index.html">Início</a>
+        <a href="../index.html#destaques">Produtos</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="contato.html">Contato</a>
+      </nav>
+      <div class="acoes-cabecalho">
+        <button class="botao-icone" aria-label="Buscar">
+          <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </button>
+        <a href="login.html" class="botao-icone" aria-label="Minha conta">
+          <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </a>
+        <a href="carrinho.html" class="botao-icone" aria-label="Carrinho de compras">
+          <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m2.05 2.05 1.099-.028a1 1 0 0 1 1.008.815l2.69 14.347A1 1 0 0 0 7.83 18H18"/><path d="M4.563 5h16.435a1 1 0 0 1 .981 1.204l-1.026 6.226A2 2 0 0 1 18.962 14H6.25"/><circle cx="18" cy="20" r="2"/><circle cx="8" cy="20" r="2"/></svg>
+          <span class="contador-carrinho">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="recipiente secao">
+      <nav class="trilha" aria-label="Trilha de navegação"><a href="../index.html">Início</a><span>›</span><span>Contato</span></nav>
+      <h1>Fale com a SE7E</h1>
+      <p class="intro-institucional">Dúvidas sobre produtos, pedidos, trocas ou devoluções? Envie sua mensagem e nossa equipe responde em breve.</p>
+
+      <div class="grade-info mt-3">
+        <form class="painel-branco" data-form-contato>
+          <div class="campo"><label for="ct-nome">Nome</label><input id="ct-nome" required placeholder="Como podemos te chamar"></div>
+          <div class="campo"><label for="ct-email">E-mail</label><input id="ct-email" type="email" required placeholder="seu@email.com"></div>
+          <div class="campo"><label for="ct-assunto">Assunto</label>
+            <select id="ct-assunto"><option>Dúvida sobre produto</option><option>Pedido e entrega</option><option>Troca ou devolução</option><option>Outro assunto</option></select></div>
+          <div class="campo"><label for="ct-msg">Mensagem</label><textarea id="ct-msg" rows="5" required placeholder="Escreva sua mensagem"></textarea></div>
+          <button class="botao botao-primario" type="submit">Enviar mensagem</button>
+        </form>
+
+        <div class="painel-branco">
+          <h3>Onde estamos</h3>
+          <p>Instituto Federal da Paraíba – Campus Santa Luzia<br>Curso Técnico em Informática — Análise e Projetos de Sistemas</p>
+          <h3 class="mt-3">Atalhos</h3>
+          <ul class="lista-permissoes">
+            <li><a href="pedido.html">Acompanhar meu pedido</a></li>
+            <li><a href="troca.html">Solicitar troca ou devolução</a></li>
+            <li><a href="sobre.html">Conheça a SE7E</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="../js/produtos.js"></script>
+  <script src="../js/script.js"></script>
+</body>
+</html>

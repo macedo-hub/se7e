@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Entrar ou cadastrar — SE7E</title>
+  <link rel="icon" type="image/svg+xml" href="../img/logo-hexagono.svg">
+  <link rel="stylesheet" href="../css/reset.css" />
+  <link rel="stylesheet" href="../css/estilo.css" />
+</head>
+<body>
+
+  <main class="tela-acesso">
+
+    <section class="tela-acesso-visual">
+      <a href="../index.html" class="marca">
+        <svg class="marca-hexagono" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradeHexAcesso" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#5c86e8"/>
+              <stop offset="1" stop-color="#1c3a75"/>
+            </linearGradient>
+          </defs>
+          <path d="M20 3 34.5 11.5 34.5 28.5 20 37 5.5 28.5 5.5 11.5Z" fill="url(#gradeHexAcesso)"/>
+        </svg>
+        SE7E
+      </a>
+
+      <div class="tela-acesso-texto">
+        <h1>Mais estilo para o seu dia.</h1>
+        <p>Roupas que acompanham você em todos os momentos.</p>
+      </div>
+
+      <svg class="tela-acesso-montanhas" viewBox="0 0 400 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 120 L40 60 L75 90 L120 35 L165 90 L205 55 L250 95 L300 45 L340 85 L400 60 L400 120 Z" fill="currentColor" opacity="0.55"/>
+        <path d="M0 120 L60 85 L100 100 L150 65 L190 105 L240 75 L280 110 L330 80 L400 100 L400 120 Z" fill="currentColor" opacity="0.9"/>
+      </svg>
+    </section>
+
+    <section class="tela-acesso-formulario">
+      <div class="cartao-formulario">
+
+        <div class="abas-acesso" role="tablist">
+          <button type="button" role="tab" data-aba="entrar" aria-selected="true">Entrar</button>
+          <button type="button" role="tab" data-aba="cadastrar" aria-selected="false">Cadastrar</button>
+        </div>
+
+        <!-- Painel: Entrar (RF001 - Login) -->
+        <form data-painel-acesso="entrar">
+          <div class="campo entrada-com-icone">
+            <label for="email-entrar">E-mail ou usuário</label>
+            <svg class="icone icone-pequeno" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+            <input type="text" id="email-entrar" name="email" placeholder="seu@email.com ou usuário" autocomplete="username" required />
+          </div>
+
+          <div class="campo entrada-com-icone">
+            <label for="senha-entrar">Senha</label>
+            <svg class="icone icone-pequeno" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <input type="password" id="senha-entrar" name="senha" placeholder="••••••••" required />
+            <button type="button" class="alternar-senha" aria-label="Mostrar senha">
+              <svg class="icone icone-pequeno" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+
+          <div class="opcao-lembrar">
+            <label><input type="checkbox" name="lembrar" /> Lembrar de mim</label>
+            <a href="#" class="esqueceu-senha">Esqueceu sua senha?</a>
+          </div>
+
+          <button type="submit" class="botao botao-primario botao-bloco">Entrar</button>
+          <p class="dica-login">Acesso administrador: usuário <strong>admin</strong> e senha <strong>admin</strong></p>
+
+          <div class="divisor-ou">ou</div>
+
+          <button type="button" class="botao-social">
+            <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M17.64 9.2c0-.64-.06-1.25-.16-1.84H9v3.48h4.84a4.14 4.14 0 0 1-1.8 2.71v2.26h2.9c1.7-1.57 2.7-3.87 2.7-6.6z"/><path fill="#34A853" d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.9-2.26c-.8.54-1.84.86-3.06.86-2.35 0-4.34-1.59-5.05-3.72H.9v2.33A9 9 0 0 0 9 18z"/><path fill="#FBBC05" d="M3.95 10.7A5.4 5.4 0 0 1 3.68 9c0-.59.1-1.16.28-1.7V4.96H.9A9 9 0 0 0 0 9c0 1.45.35 2.83.9 4.04z"/><path fill="#EA4335" d="M9 3.58c1.32 0 2.5.45 3.44 1.35l2.58-2.58C13.46.9 11.43 0 9 0A9 9 0 0 0 .9 4.96l3.06 2.34C4.66 5.17 6.65 3.58 9 3.58z"/></svg>
+            Entrar com Google
+          </button>
+          <button type="button" class="botao-social">
+            <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="#111"><path d="M11.6 8.44c-.02-1.5 1.23-2.22 1.29-2.26-.7-1.03-1.8-1.17-2.2-1.18-.94-.1-1.83.55-2.3.55-.48 0-1.2-.54-1.98-.52-1.02.02-1.96.6-2.48 1.5-1.06 1.84-.27 4.56.76 6.05.5.73 1.1 1.55 1.9 1.52.76-.03 1.05-.5 1.97-.5.92 0 1.18.5 1.98.48.82-.01 1.34-.74 1.84-1.47.58-.85.82-1.67.83-1.71-.02-.01-1.59-.61-1.61-2.46zM10.03 3.9c.42-.5.7-1.2.62-1.9-.6.02-1.34.4-1.77.9-.39.44-.73 1.16-.64 1.84.67.05 1.36-.34 1.79-.84z"/></svg>
+            Entrar com Apple
+          </button>
+        </form>
+
+        <!-- Painel: Cadastrar -->
+        <form data-painel-acesso="cadastrar">
+          <div class="campo">
+            <label for="nome-cadastro">Nome completo</label>
+            <input type="text" id="nome-cadastro" name="nome" placeholder="Como podemos te chamar" required />
+          </div>
+
+          <div class="campo entrada-com-icone">
+            <label for="email-cadastro">E-mail</label>
+            <svg class="icone icone-pequeno" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+            <input type="email" id="email-cadastro" name="email" placeholder="seu@email.com" required />
+          </div>
+
+          <div class="campo entrada-com-icone">
+            <label for="senha-cadastro">Senha</label>
+            <svg class="icone icone-pequeno" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <input type="password" id="senha-cadastro" name="senha" placeholder="Mínimo de 8 caracteres" required />
+            <button type="button" class="alternar-senha" aria-label="Mostrar senha">
+              <svg class="icone icone-pequeno" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+
+          <button type="submit" class="botao botao-primario botao-bloco mt-1">Criar conta</button>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <script src="../js/produtos.js"></script>
+  <script src="../js/script.js"></script>
+</body>
+</html>

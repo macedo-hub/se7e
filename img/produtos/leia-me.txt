@@ -1,0 +1,20 @@
+FOTOS DOS PRODUTOS — coloque os arquivos nesta pasta com EXATAMENTE estes nomes
+(o site já chama esses nomes; se o arquivo não existir, aparece um ícone no lugar).
+
+Home / carrinho / pagamento / confirmação:
+  moletom-oversized.jpg
+  camiseta-basica.jpg
+  calca-cargo.jpg
+  jaqueta-jeans.jpg
+
+Página do produto (galeria do Moletom Oversized — 4 fotos):
+  moletom-oversized-1.jpg   (foto principal)
+  moletom-oversized-2.jpg
+  moletom-oversized-3.jpg
+  moletom-oversized-4.jpg
+
+Banner da home (fica na pasta img/, não aqui):
+  img/banner-outono-inverno.jpg
+
+Dicas: use .jpg minúsculo, sem acento e sem espaço. Fotos quadradas (1:1)
+ficam melhores nos produtos; o banner funciona bem em formato 4:3.

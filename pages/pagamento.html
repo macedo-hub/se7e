@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pagamento — SE7E</title>
+  <link rel="icon" type="image/svg+xml" href="../img/logo-hexagono.svg">
+  <link rel="stylesheet" href="../css/reset.css" />
+  <link rel="stylesheet" href="../css/estilo.css" />
+</head>
+<body>
+
+  <header class="cabecalho">
+    <div class="recipiente barra-cabecalho">
+      <a href="../index.html" class="marca">
+        <svg class="marca-hexagono" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="gradeHexPagamento" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#5c86e8"/><stop offset="1" stop-color="#1c3a75"/></linearGradient></defs>
+          <path d="M20 3 34.5 11.5 34.5 28.5 20 37 5.5 28.5 5.5 11.5Z" fill="url(#gradeHexPagamento)"/>
+        </svg>
+        SE7E
+      </a>
+      <button class="botao-menu-movel" aria-label="Abrir menu">
+        <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
+      </button>
+      <nav class="nav-principal" aria-label="Navegação principal">
+        <a href="../index.html">Início</a>
+        <a href="../index.html#destaques">Produtos</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="contato.html">Contato</a>
+      </nav>
+      <div class="acoes-cabecalho">
+        <button class="botao-icone" aria-label="Buscar">
+          <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </button>
+        <a href="login.html" class="botao-icone" aria-label="Minha conta">
+          <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </a>
+        <a href="carrinho.html" class="botao-icone" aria-label="Carrinho de compras">
+          <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m2.05 2.05 1.099-.028a1 1 0 0 1 1.008.815l2.69 14.347A1 1 0 0 0 7.83 18H18"/><path d="M4.563 5h16.435a1 1 0 0 1 .981 1.204l-1.026 6.226A2 2 0 0 1 18.962 14H6.25"/><circle cx="18" cy="20" r="2"/><circle cx="8" cy="20" r="2"/></svg>
+          <span class="contador-carrinho">3</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="recipiente secao">
+      <a href="entrega.html" class="link-voltar mb-1">
+        <svg class="icone icone-pequeno" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        Voltar
+      </a>
+      <h1 class="mb-3">Pagamento</h1>
+
+      <div class="passos-checkout">
+        <span class="passo-checkout" data-concluido="true">1. Carrinho</span>
+        <span class="passo-checkout" data-concluido="true">2. Entrega</span>
+        <span class="passo-checkout" aria-current="step">3. Pagamento</span>
+        <span class="passo-checkout">4. Confirmação</span>
+      </div>
+
+      <div class="grade-checkout">
+        <div>
+          <div class="bloco-checkout">
+            <h3><span class="numero-bloco">1</span> Forma de pagamento</h3>
+
+            <label class="opcao-pagamento">
+              <input type="radio" name="forma-pagamento" value="cartao" checked />
+              <div class="detalhe-pagamento">
+                <strong>Cartão de crédito</strong>
+                <span>Até 12x sem juros</span>
+              </div>
+              <div class="bandeiras">
+                <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+              </div>
+            </label>
+
+            <label class="opcao-pagamento">
+              <input type="radio" name="forma-pagamento" value="pix" />
+              <div class="detalhe-pagamento">
+                <strong>Pix</strong>
+                <span>Aprovação imediata</span>
+              </div>
+              <div class="bandeiras">
+                <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="5" height="5" x="3" y="3" rx="1"/><rect width="5" height="5" x="16" y="3" rx="1"/><rect width="5" height="5" x="3" y="16" rx="1"/><path d="M21 16h-3a2 2 0 0 0-2 2v3"/><path d="M21 21v.01"/><path d="M12 7v3a2 2 0 0 1-2 2H7"/></svg>
+              </div>
+            </label>
+
+            <label class="opcao-pagamento">
+              <input type="radio" name="forma-pagamento" value="boleto" />
+              <div class="detalhe-pagamento">
+                <strong>Boleto bancário</strong>
+                <span>Até 3 dias úteis para compensar</span>
+              </div>
+              <div class="bandeiras">
+                <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5v14"/><path d="M8 5v14"/><path d="M12 5v14"/><path d="M17 5v14"/><path d="M21 5v14"/></svg>
+              </div>
+            </label>
+
+            <!-- Painel: Cartão de crédito -->
+            <div class="painel-pagamento" data-pagamento="cartao" data-ativo="true">
+              <h3><span class="numero-bloco">2</span> Dados do cartão</h3>
+              <div class="campo">
+                <label for="numero-cartao">Número do cartão</label>
+                <input type="text" id="numero-cartao" placeholder="0000 0000 0000 0000" inputmode="numeric" />
+              </div>
+              <div class="campo">
+                <label for="nome-cartao">Nome do titular</label>
+                <input type="text" id="nome-cartao" placeholder="Nome como está no cartão" />
+              </div>
+              <div class="linha-campos">
+                <div class="campo">
+                  <label for="validade-cartao">Validade</label>
+                  <input type="text" id="validade-cartao" placeholder="MM/AA" />
+                </div>
+                <div class="campo">
+                  <label for="cvv-cartao">CVV</label>
+                  <input type="text" id="cvv-cartao" placeholder="000" inputmode="numeric" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Painel: Pix -->
+            <div class="painel-pagamento" data-pagamento="pix">
+              <div class="aviso-caixa">
+                <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="5" height="5" x="3" y="3" rx="1"/><rect width="5" height="5" x="16" y="3" rx="1"/><rect width="5" height="5" x="3" y="16" rx="1"/><path d="M21 16h-3a2 2 0 0 0-2 2v3"/></svg>
+                <span>Ao confirmar, geramos um QR Code para pagamento via Pix. A aprovação é imediata após o pagamento.</span>
+              </div>
+            </div>
+
+            <!-- Painel: Boleto -->
+            <div class="painel-pagamento" data-pagamento="boleto">
+              <div class="aviso-caixa">
+                <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5v14"/><path d="M8 5v14"/><path d="M12 5v14"/><path d="M17 5v14"/><path d="M21 5v14"/></svg>
+                <span>O boleto será gerado após a confirmação e pode levar até 3 dias úteis para ser compensado.</span>
+              </div>
+            </div>
+          </div>
+
+          <a href="confirmacao.html" class="botao botao-primario botao-bloco">Finalizar pagamento</a>
+        </div>
+
+        <aside class="resumo-pedido">
+          <h3>Resumo do pedido</h3>
+          <div data-lista-resumo=""></div>
+          <div class="linha-resumo mt-2"><span>Itens (<span data-r-itens>0</span>)</span><span data-r-subtotal>R$ 0,00</span></div>
+          <div class="linha-resumo"><span>Frete</span><span data-r-frete>R$ 12,90</span></div>
+          <div class="linha-resumo total"><span>Total</span><span data-r-total>R$ 0,00</span></div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <script src="../js/produtos.js"></script>
+  <script src="../js/script.js"></script>
+</body>
+</html>

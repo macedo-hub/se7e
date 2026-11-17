@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carrinho de compras — SE7E</title>
+  <link rel="icon" type="image/svg+xml" href="../img/logo-hexagono.svg">
+  <link rel="stylesheet" href="../css/reset.css" />
+  <link rel="stylesheet" href="../css/estilo.css" />
+</head>
+<body>
+
+  <header class="cabecalho">
+    <div class="recipiente barra-cabecalho">
+      <a href="../index.html" class="marca">
+        <svg class="marca-hexagono" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="gradeHexCarrinho" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#5c86e8"/><stop offset="1" stop-color="#1c3a75"/></linearGradient></defs>
+          <path d="M20 3 34.5 11.5 34.5 28.5 20 37 5.5 28.5 5.5 11.5Z" fill="url(#gradeHexCarrinho)"/>
+        </svg>
+        SE7E
+      </a>
+      <button class="botao-menu-movel" aria-label="Abrir menu">
+        <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
+      </button>
+      <nav class="nav-principal" aria-label="Navegação principal">
+        <a href="../index.html">Início</a>
+        <a href="../index.html#destaques">Produtos</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="contato.html">Contato</a>
+      </nav>
+      <div class="acoes-cabecalho">
+        <button class="botao-icone" aria-label="Buscar">
+          <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </button>
+        <a href="login.html" class="botao-icone" aria-label="Minha conta">
+          <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </a>
+        <a href="carrinho.html" class="botao-icone" aria-label="Carrinho de compras" aria-current="page">
+          <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m2.05 2.05 1.099-.028a1 1 0 0 1 1.008.815l2.69 14.347A1 1 0 0 0 7.83 18H18"/><path d="M4.563 5h16.435a1 1 0 0 1 .981 1.204l-1.026 6.226A2 2 0 0 1 18.962 14H6.25"/><circle cx="18" cy="20" r="2"/><circle cx="8" cy="20" r="2"/></svg>
+          <span class="contador-carrinho" data-contador-itens>3</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="recipiente secao">
+      <div class="cabecalho-secao">
+        <h1>Carrinho de Compras</h1>
+        <a href="../index.html" class="link-discreto">Continuar comprando</a>
+      </div>
+
+      <div class="grade-carrinho">
+        <div data-carrinho-cheio>
+          <div data-lista-carrinho></div>
+        </div>
+
+        <div class="carrinho-vazio" data-carrinho-vazio>
+          <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="m2.05 2.05 1.099-.028a1 1 0 0 1 1.008.815l2.69 14.347A1 1 0 0 0 7.83 18H18"/><path d="M4.563 5h16.435a1 1 0 0 1 .981 1.204l-1.026 6.226A2 2 0 0 1 18.962 14H6.25"/><circle cx="18" cy="20" r="2"/><circle cx="8" cy="20" r="2"/></svg>
+          <h3>Seu carrinho está vazio</h3>
+          <p class="mb-2">Que tal dar uma olhada nos nossos destaques?</p>
+          <a href="../index.html" class="botao botao-primario">Ver produtos</a>
+        </div>
+
+        <aside class="resumo-pedido">
+          <div class="linha-resumo">
+            <span>Itens (<span data-contador-itens>3</span>)</span>
+            <span data-subtotal>R$ 419,70</span>
+          </div>
+
+          <div class="campo-cupom">
+            <input type="text" placeholder="Código do cupom" aria-label="Código do cupom" />
+            <button class="botao botao-secundario" type="button">Aplicar</button>
+          </div>
+
+          <div class="linha-resumo total" data-valor-frete="0">
+            <span>Total</span>
+            <span data-total>R$ 419,70</span>
+          </div>
+
+          <a href="entrega.html" class="botao botao-primario botao-bloco mt-1">
+            Finalizar compra
+            <svg class="icone icone-pequeno" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <script src="../js/produtos.js"></script>
+  <script src="../js/script.js"></script>
+</body>
+</html>

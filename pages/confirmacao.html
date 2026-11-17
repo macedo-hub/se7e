@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pedido confirmado — SE7E</title>
+  <link rel="icon" type="image/svg+xml" href="../img/logo-hexagono.svg">
+  <link rel="stylesheet" href="../css/reset.css" />
+  <link rel="stylesheet" href="../css/estilo.css" />
+</head>
+<body>
+
+  <header class="cabecalho">
+    <div class="recipiente barra-cabecalho centralizado">
+      <a href="../index.html" class="marca">
+        <svg class="marca-hexagono" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="gradeHexConfirmacao" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#5c86e8"/><stop offset="1" stop-color="#1c3a75"/></linearGradient></defs>
+          <path d="M20 3 34.5 11.5 34.5 28.5 20 37 5.5 28.5 5.5 11.5Z" fill="url(#gradeHexConfirmacao)"/>
+        </svg>
+        SE7E
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <div class="recipiente">
+      <div class="confirmacao-pedido">
+        <div class="icone-sucesso">
+          <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16 9-5.5 5.5L8 12"/></svg>
+        </div>
+
+        <h1>Pedido confirmado!</h1>
+        <p class="mt-1">Seu pedido <span class="numero-pedido">#SE7E12345</span> foi realizado com sucesso. Enviamos um e-mail com todos os detalhes da sua compra.</p>
+
+        <div class="acoes-confirmacao">
+          <a href="pedido.html" class="botao botao-primario botao-bloco">Acompanhar pedido</a>
+          <a href="../index.html" class="botao botao-secundario botao-bloco">Voltar para a loja</a>
+        </div>
+
+        <div class="cartao-resumo-final">
+          <div data-lista-resumo="sem-preenchimento"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="../js/produtos.js"></script>
+  <script src="../js/script.js"></script>
+</body>
+</html>
