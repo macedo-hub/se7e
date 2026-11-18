@@ -236,5 +236,5 @@ Distribuído sob a licença **MIT**. Veja o arquivo [`LICENSE`](LICENSE) para ma
 <div align="center">
   <br>
   <img src="img/logo-hexagono.svg" alt="Logo SE7E" width="44"><br>
-  <sub><b>SE7E</b> · feito por sete pessoas · IFPB Campus Santa Luzia · 2026</sub>
+  <sub><b>SE7E</b> · feito com 💙 por sete pessoas · IFPB Campus Santa Luzia · 2026</sub>
 </div>
