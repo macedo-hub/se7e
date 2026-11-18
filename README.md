@@ -4,7 +4,7 @@
 
 <br>
 
-[![Ver o site ao vivo](https://img.shields.io/badge/▶_Ver_o_site_ao_vivo-2955c9?style=for-the-badge)](https://macedo-hub.github.io/se7e/)
+[![Ver o site ao vivo](https://img.shields.io/badge/Ver_o_site_ao_vivo-2955c9?style=for-the-badge)](https://macedo-hub.github.io/se7e/)
 [![Admin](https://img.shields.io/badge/Painel_admin-admin_/_admin-0e1b3a?style=for-the-badge)](https://macedo-hub.github.io/se7e/pages/login.html)
 
 ![HTML5](https://img.shields.io/badge/HTML5-e34f26?style=flat-square&logo=html5&logoColor=white)
@@ -16,13 +16,13 @@
 
 **Uma loja de roupas online fictícia, feita como projeto avaliativo da disciplina de<br>Análise e Projetos de Sistemas — Curso Técnico em Informática, IFPB Campus Santa Luzia (2026).**
 
-[Sobre](#-sobre-o-projeto) · [Telas](#-conheça-as-telas) · [Funcionalidades](#-o-que-dá-para-fazer) · [Como testar](#-como-testar-em-1-minuto) · [Estrutura](#-estrutura-do-projeto) · [Equipe](#-quem-fez-a-se7e)
+[Sobre](#sobre-o-projeto) · [Telas](#conheça-as-telas) · [Funcionalidades](#o-que-dá-para-fazer) · [Como testar](#como-testar-em-1-minuto) · [Estrutura](#estrutura-do-projeto) · [Equipe](#quem-fez-a-se7e)
 
 </div>
 
 ---
 
-## 💙 Sobre o projeto
+## Sobre o projeto
 
 A **SE7E** é uma loja de roupas online **inventada**: nenhuma compra é real e nenhum dado sai do seu navegador. O objetivo é simular o caminho completo de um e-commerce — da vitrine ao pedido, passando pelo painel de quem administra a loja — para colocar em prática o que foi estudado em Análise e Projetos de Sistemas.
 
@@ -33,7 +33,7 @@ O projeto será avaliado pelo professor **Elismar Moraes dos Santos**.
 
 ---
 
-## 🖼️ Conheça as telas
+## Conheça as telas
 
 <table>
   <tr>
@@ -47,7 +47,7 @@ O projeto será avaliado pelo professor **Elismar Moraes dos Santos**.
 </table>
 
 <details>
-<summary><b>📱 E no celular?</b> (clique para abrir)</summary>
+<summary><b>E no celular?</b> (clique para abrir)</summary>
 <br>
 
 O site foi conferido de **320px a 1440px**, sem rolagem lateral em nenhuma página. No celular, o menu vira um menu suspenso (fecha com `Esc` ou ao clicar fora).
@@ -58,62 +58,62 @@ O site foi conferido de **320px a 1440px**, sem rolagem lateral em nenhuma pági
 
 ---
 
-## 🛍️ O que dá para fazer
+## O que dá para fazer
 
 <details open>
-<summary><b>👤 Quem compra</b></summary>
+<summary><b>Quem compra</b></summary>
 <br>
 
-| | Funcionalidade | Detalhe |
-|---|---|---|
-| 🧥 | **Ver produtos** | Catálogo com filtro por categoria (Camisetas, Calças, Jaquetas) |
-| 📏 | **Escolher tamanho e cor** | Com tabela de medidas para consultar antes de decidir |
-| 🛒 | **Montar o carrinho** | Alterar quantidades, remover itens, ver o subtotal |
-| 🏷️ | **Aplicar cupom** | `DESCONTO10`, `DESCONTO15`, `DESCONTO20`, `DESCONTO30` e `DESCONTO50` (desconto em R$) |
-| 🚚 | **Calcular frete** | Informando o CEP |
-| 💳 | **Pagar** | PIX, cartão ou boleto (tudo simulado) |
-| 📦 | **Acompanhar o pedido** | Status da entrega e código de rastreio |
-| 🔄 | **Pedir troca ou devolução** | Formulário de solicitação |
-| ✉️ | **Falar com a loja** | Página de contato |
+| Funcionalidade | Detalhe |
+|---|---|
+| **Ver produtos** | Catálogo com filtro por categoria (Camisetas, Calças, Jaquetas) |
+| **Escolher tamanho e cor** | Com tabela de medidas para consultar antes de decidir |
+| **Montar o carrinho** | Alterar quantidades, remover itens, ver o subtotal |
+| **Aplicar cupom** | `DESCONTO10`, `DESCONTO15`, `DESCONTO20`, `DESCONTO30` e `DESCONTO50` (desconto em R$) |
+| **Calcular frete** | Informando o CEP |
+| **Pagar** | PIX, cartão ou boleto (tudo simulado) |
+| **Acompanhar o pedido** | Status da entrega e código de rastreio |
+| **Pedir troca ou devolução** | Formulário de solicitação |
+| **Falar com a loja** | Página de contato |
 
 </details>
 
 <details open>
-<summary><b>🛠️ Quem administra</b></summary>
+<summary><b>Quem administra</b></summary>
 <br>
 
-| | Funcionalidade | Detalhe |
-|---|---|---|
-| 📚 | **Catálogo** | Cadastrar, editar e excluir produtos |
-| 📊 | **Estoque** | Controlar entradas e saídas; o estoque baixa sozinho a cada pedido finalizado |
-| 📈 | **Relatórios** | Vendas e desempenho da loja |
-| 🙍 | **Perfil** | Dados do administrador |
+| Funcionalidade | Detalhe |
+|---|---|
+| **Catálogo** | Cadastrar, editar e excluir produtos |
+| **Estoque** | Controlar entradas e saídas; o estoque baixa sozinho a cada pedido finalizado |
+| **Relatórios** | Vendas e desempenho da loja |
+| **Perfil** | Dados do administrador |
 
-> 🔑 **Entrar como administrador:** usuário `admin` · senha `admin`
+> **Entrar como administrador:** usuário `admin` · senha `admin`
 
 </details>
 
-### 🧭 O caminho de uma compra
+### O caminho de uma compra
 
 ```mermaid
 flowchart LR
-    A([🏠 Início]) --> B[🧥 Produto]
-    B --> C[🛒 Carrinho]
-    C --> D[🚚 Entrega]
-    D --> E[💳 Pagamento]
-    E --> F([✅ Pedido confirmado])
-    F --> G[📦 Acompanhar pedido]
-    G -.-> H[🔄 Troca / devolução]
-    F -. baixa o estoque .-> I[(🛠️ Painel admin)]
+    A([Início]) --> B[Produto]
+    B --> C[Carrinho]
+    C --> D[Entrega]
+    D --> E[Pagamento]
+    E --> F([Pedido confirmado])
+    F --> G[Acompanhar pedido]
+    G -.-> H[Troca / devolução]
+    F -. baixa o estoque .-> I[(Painel admin)]
 ```
 
 ---
 
-## 🚀 Como testar em 1 minuto
+## Como testar em 1 minuto
 
 **Opção 1 — direto no navegador (mais fácil)**
 
-👉 **<https://macedo-hub.github.io/se7e/>**
+**<https://macedo-hub.github.io/se7e/>**
 
 **Opção 2 — na sua máquina**
 
@@ -129,7 +129,7 @@ python3 -m http.server 8000
 Depois é só abrir <http://localhost:8000> no navegador. Também funciona dando dois cliques no `index.html`.
 
 <details>
-<summary><b>🎯 Roteiro sugerido para a avaliação</b></summary>
+<summary><b>Roteiro sugerido para a avaliação</b></summary>
 <br>
 
 1. Abra a **Início** e filtre por categoria.
@@ -144,7 +144,7 @@ Depois é só abrir <http://localhost:8000> no navegador. Também funciona dando
 
 ---
 
-## 🧩 Estrutura do projeto
+## Estrutura do projeto
 
 ```text
 sete/
@@ -172,7 +172,7 @@ sete/
 ```
 
 <details>
-<summary><b>🎨 Detalhes de design</b></summary>
+<summary><b>Detalhes de design</b></summary>
 <br>
 
 - **Paleta azul** definida em variáveis CSS (`--azul-900` a `--azul-50`), fácil de trocar em um só lugar.
@@ -184,7 +184,7 @@ sete/
 </details>
 
 <details>
-<summary><b>💾 Onde ficam os dados?</b></summary>
+<summary><b>Onde ficam os dados?</b></summary>
 <br>
 
 Não há banco de dados nem servidor. O site usa o armazenamento do navegador:
@@ -200,7 +200,7 @@ Para voltar ao estado inicial, basta limpar os dados do site no navegador.
 
 ---
 
-## 👩‍💻👨‍💻 Quem fez a SE7E
+## Quem fez a SE7E
 
 ### Professor avaliador
 
@@ -229,12 +229,12 @@ Para voltar ao estado inicial, basta limpar os dados do site no navegador.
 
 ---
 
-## 📄 Licença
+## Licença
 
 Distribuído sob a licença **MIT**. Veja o arquivo [`LICENSE`](LICENSE) para mais detalhes.
 
 <div align="center">
   <br>
   <img src="img/logo-hexagono.svg" alt="Logo SE7E" width="44"><br>
-  <sub><b>SE7E</b> · feito com 💙 por sete pessoas · IFPB Campus Santa Luzia · 2026</sub>
+  <sub><b>SE7E</b> · feito por sete pessoas · IFPB Campus Santa Luzia · 2026</sub>
 </div>
