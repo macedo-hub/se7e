@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 340" width="1200" height="340" role="img" aria-label="SE7E — loja de roupas fictícia">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0e1b3a"/><stop offset="1" stop-color="#1f3a80"/></linearGradient>
+    <linearGradient id="hx" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6d90ea"/><stop offset="1" stop-color="#1c3a75"/></linearGradient>
+    <radialGradient id="glow" cx="80%" cy="10%" r="60%"><stop offset="0" stop-color="#3f6be0" stop-opacity=".55"/><stop offset="1" stop-color="#3f6be0" stop-opacity="0"/></radialGradient>
+    <style>
+      .f1{animation:f 8s ease-in-out infinite}.f2{animation:f 10s ease-in-out -3s infinite}.f3{animation:f 12s ease-in-out -6s infinite}
+      @keyframes f{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+      .t{font-family:'Poppins','Segoe UI',Arial,sans-serif}
+    </style>
+  </defs>
+  <rect width="1200" height="340" rx="22" fill="url(#bg)"/>
+  <rect width="1200" height="340" rx="22" fill="url(#glow)"/>
+  <g fill="url(#hx)" opacity=".5">
+    <path class="f1" d="M1030 40 1090 75 1090 145 1030 180 970 145 970 75Z"/>
+    <path class="f2" d="M890 200 925 220 925 260 890 280 855 260 855 220Z"/>
+    <path class="f3" d="M1110 215 1135 230 1135 258 1110 273 1085 258 1085 230Z"/>
+  </g>
+  <path d="M0 340 L80 270 L150 310 L240 240 L330 310 L410 260 L500 320 L600 250 L690 310 L800 265 L900 320 L1000 280 L1200 330 L1200 340Z" fill="#2955c9" opacity=".35"/>
+  <path d="M170 105 220 134 220 192 170 221 120 192 120 134Z" fill="url(#hx)"/>
+  <text x="255" y="188" class="t" font-size="104" font-weight="700" fill="#fff">SE7E</text>
+  <text x="125" y="268" class="t" font-size="26" fill="#d3dcf3">Loja de roupas online fictícia · projeto avaliativo · IFPB Santa Luzia</text>
+</svg>
